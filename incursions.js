@@ -99,7 +99,8 @@ function render() {
 
   document.getElementById("inc-table-year").innerHTML = table(
     ["Year", "Passes", "Students", "Passes / student", "Avg min", "Total min"],
-    a.byYear.map(y => [esc(`Year ${y.year}`), y.passes, y.students, y.passesPerStudent, y.avgDuration, y.totalMinutes])
+    [...a.byYear].sort((x, y) => y.totalMinutes - x.totalMinutes || Number(x.year) - Number(y.year))
+      .map(y => [esc(`Year ${y.year}`), y.passes, y.students, y.passesPerStudent, y.avgDuration, y.totalMinutes])
   );
 
   document.getElementById("inc-table-roll").innerHTML = table(
