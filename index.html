@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Toilet Pass Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="incursions.js"></script>
+</head>
+
+<body>
+    <h1>Toilet Pass Analysis</h1>
+
+
+    <div id="content">
+        <section class="page-intro">
+            <h2>Analyse a Sentral Incursions Export</h2>
+            <p>Upload the <code>Incursions</code> report (.xls or .xlsx). The file is read in your browser only &ndash; nothing is uploaded or stored.</p>
+        </section>
+
+        <section class="admin-card">
+            <div class="inc-upload-row">
+                <input type="file" id="inc-file" accept=".xls,.xlsx">
+                <label>Long pass over
+                    <input id="inc-long-minutes" type="number" min="1" step="1" value="10"> min
+                </label>
+                <label>Frequent user at
+                    <input id="inc-frequent" type="number" min="2" step="1" value="3"> or more passes
+                </label>
+            </div>
+            <p id="inc-status" class="muted-text">No file loaded.</p>
+        </section>
+
+        <div id="inc-results" class="hidden">
+            <section class="control-panel">
+                <div class="panel-block">
+                    <strong>Year group</strong>
+                    <div id="inc-year-filter" class="year-filter-group"></div>
+                </div>
+                <div class="panel-block" id="inc-date-block">
+                    <strong>Date</strong>
+                    <select id="inc-date-filter"></select>
+                </div>
+                <div class="panel-block">
+                    <button id="inc-export">Export Analysis to Excel</button>
+                </div>
+            </section>
+
+            <section class="admin-card">
+                <h2>Summary</h2>
+                <div id="inc-tiles" class="inc-tiles"></div>
+            </section>
+
+            <section class="admin-card">
+                <h2>Passes by Time of Day</h2>
+                <p class="muted-text">Based on the time the student scanned out of class.</p>
+                <div id="inc-chart-hour" class="inc-bars"></div>
+            </section>
+
+            <section class="admin-card">
+                <h2>How Long Passes Last</h2>
+                <div id="inc-chart-duration" class="inc-bars"></div>
+            </section>
+
+            <section class="admin-card">
+                <h2>By Year Group</h2>
+                <div id="inc-table-year" class="table-card"></div>
+            </section>
+
+            <section class="admin-card">
+                <h2>By Roll Class</h2>
+                <div id="inc-table-roll" class="table-card"></div>
+            </section>
+
+            <section class="admin-card" id="inc-card-date">
+                <h2>By Day</h2>
+                <div id="inc-table-date" class="table-card"></div>
+            </section>
+
+            <section class="admin-card">
+                <h2>Frequent Users</h2>
+                <p id="inc-frequent-note" class="muted-text"></p>
+                <div id="inc-table-frequent" class="table-card"></div>
+            </section>
+
+            <section class="admin-card">
+                <h2>Long Passes</h2>
+                <p id="inc-long-note" class="muted-text"></p>
+                <div id="inc-table-long" class="table-card"></div>
+            </section>
+
+            <section class="admin-card">
+                <h2>All Students</h2>
+                <label for="inc-student-search">Search
+                    <input id="inc-student-search" type="search" placeholder="Name, ID or roll class">
+                </label>
+                <div id="inc-table-students" class="table-card"></div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
